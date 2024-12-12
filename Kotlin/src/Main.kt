@@ -1,43 +1,47 @@
 fun main() {
     val option: Int = readln().toInt()
     when (option) {
-        1 -> println("Area: ${howBigIsMyPizza()}")
-        2 -> println("Volum: ${airVolumeCalculator()}")
-        3 -> println("Major d'edat: ${isLegalAge()}")
-        4 -> println("És major: ${isGreater()}")
-        5 -> println("Existeix un bitllet: ${isValidNote()}")
+        1 -> howBigIsMyPizza()
+        2 -> airVolumeCalculator()
+        3 -> isLegalAge()
+        4 -> isGreater()
+        5 -> isValidNote()
         else -> println("Invalid Option")
     }
 }
-fun howBigIsMyPizza(): Double {
+fun howBigIsMyPizza() {
     println("How Big is MyPizza\nDiametre:")
     val diameter: Double = readln().toDouble()
     val radius: Double = diameter / 2.0
     val surface: Double = Math.PI * radius * radius
-    return surface
+    println("Area: ${surface}")
 }
-fun airVolumeCalculator(): Double {
+fun airVolumeCalculator() {
     println("Air Volume Calculator\nAlçada, Amplada, Llargaria:")
     val height: Double = readln().toDouble()
     val width: Double = readln().toDouble()
     val length: Double = readln().toDouble()
     val volume: Double = height * width * length
-    return volume
+    println("Volum: ${volume}")
 }
-fun isLegalAge(): Boolean {
+fun isLegalAge() {
     println("Is Legal Age\nEdat:")
     val age: Int = readln().toInt()
-    return age >= 18
+    if (age >= 18) println("Major d'edat")
+    else println("Menor d'edat")
 }
-fun isGreater(): Boolean {
+fun isGreater() {
     println("Is Greater\nDos nombres:")
     val num1: Int = readln().toInt()
     val num2: Int = readln().toInt()
-    return num1 > num2
+    if (num1 > num2) println("${num1} és major")
+    else if (num1 < num2) println("${num2} és major")
+    else println("Són iguals ${num1} = ${num2}")
 }
-fun isValidNote(): Boolean {
+fun isValidNote() {
     println("Is Valid Note\nNombre:")
     val euros = arrayOf(5, 10, 20, 50, 100, 200, 500)
     val num: Int = readln().toInt()
-    return euros.contains(num)
+    if (euros.contains(num)) println("És un bitllet")
+    else println("NO és un bitllet")
 }
